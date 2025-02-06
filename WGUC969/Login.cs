@@ -12,6 +12,7 @@ using System.Drawing.Drawing2D;
 using System.Resources;
 using System.Collections;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WGUC969
 {
@@ -45,7 +46,8 @@ namespace WGUC969
 
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                lblWarning.Text = "Please enter a Username and Password";
+                lblWarning.Text = resourceManager.GetString("LoginEmpty", cultureInfo);
+
                 return;
             }
             string connectionString = "Server=localhost;Database=client_schedule;User Id=root;Password=admin;";
@@ -67,13 +69,17 @@ namespace WGUC969
 
                         if (userCount > 0)
                         {
+                            UpdateLog(username);
+                            this.Hide();
+                           MainWindow mainWindow = new MainWindow("username");  
+                            mainWindow.ShowDialog();
 
-                            Form1 form1 = new Form1();
-                            form1.ShowDialog();
+                            this.Show();
                         }
                         else
                         {
-                            lblWarning.Text = "The Username and/or Password do not match.";
+                            lblWarning.Text = resourceManager.GetString("InvalidLogin", cultureInfo);
+                           
                         }
                     }
 
@@ -84,6 +90,24 @@ namespace WGUC969
                 }
             }
 
+
+        }
+
+        void UpdateLog(string logUsername)
+        {
+            string logFilePath = "Login_History.txt";
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(logFilePath, true))
+                {
+                    writer.WriteLine($"Timestamp: {timestamp}, Username: {logUsername}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occured while recording login: " + ex.Message);
+            }
 
         }
 

@@ -90,14 +90,14 @@
             // 
             // tbxUser
             // 
-            tbxUser.Location = new Point(226, 187);
+            tbxUser.Location = new Point(300, 187);
             tbxUser.Name = "tbxUser";
             tbxUser.Size = new Size(208, 27);
             tbxUser.TabIndex = 5;
             // 
             // tbxPass
             // 
-            tbxPass.Location = new Point(226, 271);
+            tbxPass.Location = new Point(299, 271);
             tbxPass.Name = "tbxPass";
             tbxPass.Size = new Size(209, 27);
             tbxPass.TabIndex = 6;

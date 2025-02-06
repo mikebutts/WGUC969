@@ -1,6 +1,6 @@
 ﻿namespace WGUC969
 {
-    partial class Form1
+    partial class Calendar
     {
         /// <summary>
         ///  Required designer variable.
@@ -112,7 +112,7 @@
             // 
             lblMonth.AutoSize = true;
             lblMonth.Font = new Font("Playfair Display", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            lblMonth.Location = new Point(439, 9);
+            lblMonth.Location = new Point(371, 7);
             lblMonth.Name = "lblMonth";
             lblMonth.Size = new Size(120, 48);
             lblMonth.TabIndex = 1;
@@ -130,7 +130,7 @@
             // 
             // btnPrev
             // 
-            btnPrev.Location = new Point(382, 22);
+            btnPrev.Location = new Point(208, 22);
             btnPrev.Name = "btnPrev";
             btnPrev.Size = new Size(51, 35);
             btnPrev.TabIndex = 3;
@@ -138,7 +138,7 @@
             btnPrev.UseVisualStyleBackColor = true;
             btnPrev.Click += btnPrev_Click;
             // 
-            // Form1
+            // Calendar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -147,7 +147,7 @@
             Controls.Add(btnNext);
             Controls.Add(lblMonth);
             Controls.Add(dgvCalendar);
-            Name = "Form1";
+            Name = "Calendar";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dgvCalendar).EndInit();
             ResumeLayout(false);
